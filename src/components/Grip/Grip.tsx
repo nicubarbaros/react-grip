@@ -3,13 +3,13 @@
 import React, { useState, useCallback } from "react";
 import "../../styles/main.css";
 
-export interface GripControllerProps {
+export type GripControllerProps = {
   children: React.ReactNode;
   minWidth?: number;
   maxWidth?: number;
   controlPosition?: "below" | "top-right";
   name?: string;
-}
+};
 
 const Controls = React.memo(
   ({
