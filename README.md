@@ -2,6 +2,8 @@
 
 A React component for creating resizable containers with smooth drag interactions.
 
+<img width="1191" alt="Screenshot 2025-03-10 at 22 38 32" src="https://github.com/user-attachments/assets/5a09a0b2-6825-4495-9e43-99c33e432158" />
+
 ## Features
 
 - Smooth drag interactions
