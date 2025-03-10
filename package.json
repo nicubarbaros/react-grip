@@ -3,6 +3,7 @@
   "private": false,
   "version": "0.0.1",
   "type": "module",
+  "description": "A React component for resizable containers with smooth drag interactions",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -54,12 +55,20 @@
     "react",
     "components",
     "ui",
-    "typescript"
+    "typescript",
+    "resizable",
+    "drag",
+    "grip",
+    "container"
   ],
-  "author": "",
+  "author": "Nicu Barbaros",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/react-grip"
-  }
+    "url": "https://github.com/nicubarbaros/react-grip"
+  },
+  "bugs": {
+    "url": "https://github.com/nicubarbaros/react-grip/issues"
+  },
+  "homepage": "https://github.com/nicubarbaros/react-grip#readme"
 }
