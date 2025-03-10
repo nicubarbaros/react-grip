@@ -17,7 +17,6 @@ const Controls = React.memo(
     minWidth,
     maxWidth,
     onWidthChange,
-    name,
   }: {
     width: number;
     minWidth: number;
@@ -25,11 +24,11 @@ const Controls = React.memo(
     onWidthChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     name?: string;
   }) => (
-    <div className="w-full max-w-md">
-      {name && <div className="text-sm font-semibold mb-2 text-gray-700">{name}</div>}
-      <div className="relative py-2">
-        <style>
-          {`
+    <div className="w-full max-w-md flex items-center gap-2">
+      <div className="text-sm font-normal text-gray-700 uppercase text-nowrap">Resize viewport</div>
+
+      <style>
+        {`
             input[type="range"] {
               -webkit-appearance: none;
               background: transparent;
@@ -68,36 +67,17 @@ const Controls = React.memo(
             input[type="range"]:focus::-moz-range-thumb {
               box-shadow: 0 0 0 1px white, 0 0 0 2px black;
             }
-            .range-tooltip {
-              position: absolute;
-              top: -10px;
-              transform: translateX(-50%);
-              color: black;
-              font-size: 12px;
-              pointer-events: none;
-              white-space: nowrap;
-              opacity: 0;
-              transition: opacity 150ms ease;
-            }
-            input[type="range"]:focus + .range-tooltip {
-              opacity: 1;
-            }
+          
           `}
-        </style>
-        <div className="relative">
-          <input
-            type="range"
-            min={minWidth}
-            max={maxWidth}
-            value={width}
-            onChange={onWidthChange}
-            className="w-full cursor-pointer focus:outline-none"
-          />
-          <div className="range-tooltip" style={{ left: `${((width - minWidth) / (maxWidth - minWidth)) * 100}%` }}>
-            {width}
-          </div>
-        </div>
-      </div>
+      </style>
+      <input
+        type="range"
+        min={minWidth}
+        max={maxWidth}
+        value={width}
+        onChange={onWidthChange}
+        className="w-full cursor-pointer focus:outline-none"
+      />
     </div>
   )
 );
@@ -113,9 +93,9 @@ export const GripController = React.memo(
     }, []);
 
     return (
-      <div className="relative w-full">
+      <div className="w-full">
         {controlPosition === "top-right" && (
-          <div className="fixed top-4 right-4 z-10 bg-white p-4 rounded-lg shadow-md">
+          <div className="absolute top-4 right-4 z-10 bg-white p-4 rounded-lg shadow-md">
             <Controls
               width={width}
               minWidth={minWidth}
