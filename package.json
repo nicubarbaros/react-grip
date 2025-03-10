@@ -1,7 +1,7 @@
 {
   "name": "react-grip",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "A React component for resizable containers with smooth drag interactions",
   "scripts": {
