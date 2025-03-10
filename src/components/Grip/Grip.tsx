@@ -27,15 +27,77 @@ const Controls = React.memo(
   }) => (
     <div className="w-full max-w-md">
       {name && <div className="text-sm font-semibold mb-2 text-gray-700">{name}</div>}
-      <input
-        type="range"
-        min={minWidth}
-        max={maxWidth}
-        value={width}
-        onChange={onWidthChange}
-        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-      />
-      <div className="text-center mt-2 text-sm text-gray-600">Width: {width}px</div>
+      <div className="relative py-2">
+        <style>
+          {`
+            input[type="range"] {
+              -webkit-appearance: none;
+              background: transparent;
+            }
+            input[type="range"]::-webkit-slider-runnable-track {
+              height: 1px;
+              background: black;
+              border: none;
+            }
+            input[type="range"]::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              height: 12px;
+              width: 12px;
+              border-radius: 50%;
+              background: black;
+              margin-top: -5px;
+              position: relative;
+              cursor: pointer;
+            }
+            input[type="range"]:focus::-webkit-slider-thumb {
+              box-shadow: 0 0 0 1px white, 0 0 0 2px black;
+            }
+            input[type="range"]::-moz-range-track {
+              height: 1px;
+              background: black;
+              border: none;
+            }
+            input[type="range"]::-moz-range-thumb {
+              height: 12px;
+              width: 12px;
+              border: none;
+              border-radius: 50%;
+              background: black;
+              cursor: pointer;
+            }
+            input[type="range"]:focus::-moz-range-thumb {
+              box-shadow: 0 0 0 1px white, 0 0 0 2px black;
+            }
+            .range-tooltip {
+              position: absolute;
+              top: -10px;
+              transform: translateX(-50%);
+              color: black;
+              font-size: 12px;
+              pointer-events: none;
+              white-space: nowrap;
+              opacity: 0;
+              transition: opacity 150ms ease;
+            }
+            input[type="range"]:focus + .range-tooltip {
+              opacity: 1;
+            }
+          `}
+        </style>
+        <div className="relative">
+          <input
+            type="range"
+            min={minWidth}
+            max={maxWidth}
+            value={width}
+            onChange={onWidthChange}
+            className="w-full cursor-pointer focus:outline-none"
+          />
+          <div className="range-tooltip" style={{ left: `${((width - minWidth) / (maxWidth - minWidth)) * 100}%` }}>
+            {width}
+          </div>
+        </div>
+      </div>
     </div>
   )
 );

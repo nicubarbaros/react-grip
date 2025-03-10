@@ -3,9 +3,9 @@ import { GripController } from "../components";
 
 const TextCard = () => (
   <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-    <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-6">
-      <h2 className="text-3xl font-bold text-white mb-2">Beautiful Typography</h2>
-      <p className="text-purple-100">Discover the art of words</p>
+    <div className="bg-gray-100 p-6 border-b border-gray-200">
+      <h2 className="text-2xl font-bold text-gray-900 mb-2">Beautiful Typography</h2>
+      <p className="text-gray-600">Discover the art of words</p>
     </div>
     <div className="p-6">
       <p className="text-gray-600 leading-relaxed mb-4">
@@ -16,7 +16,7 @@ const TextCard = () => (
       <p className="text-gray-600 leading-relaxed mb-6">
         Good typography enhances readability, establishes hierarchy, and creates visual harmony in design.
       </p>
-      <button className="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-600 transition-colors">
+      <button className="bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors">
         Learn More
       </button>
     </div>
@@ -29,12 +29,17 @@ const SingleImageCard = () => (
       <img
         src="https://picsum.photos/800/600?random=1"
         alt="Random Beautiful Image"
-        className="w-full h-[300px] object-cover transition-transform duration-700 hover:scale-110"
+        className="w-full h-[300px] object-cover transition-transform duration-700 hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end">
-        <div className="p-6 text-white">
-          <h2 className="text-2xl font-bold mb-2">Random Beauty</h2>
-          <p className="text-gray-200">Every refresh brings a new surprise</p>
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent flex items-end">
+        <div className="p-6 w-full">
+          <h2 className="text-2xl font-bold mb-2 text-white truncate">
+            Random Beauty with a Very Long Title That Should Truncate
+          </h2>
+          <p className="text-gray-200 line-clamp-2">
+            Every refresh brings a new surprise. This is a longer description that might need to be truncated if it gets
+            too long. We'll show only two lines and add an ellipsis at the end.
+          </p>
         </div>
       </div>
     </div>
@@ -44,15 +49,15 @@ const SingleImageCard = () => (
 const TwoImagesCard = () => (
   <div className="bg-white rounded-xl shadow-lg overflow-hidden">
     <div className="p-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">Dynamic Gallery</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Dynamic Gallery</h2>
       <div className="flex flex-wrap gap-4">
         <div className="relative group flex-1 min-w-[250px]">
           <img
             src="https://picsum.photos/600/400?random=2"
             alt="Random Scene 1"
-            className="w-full h-[200px] object-cover rounded-lg transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
+            className="w-full h-[200px] object-cover rounded-lg transition-all duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
             <span className="text-white font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform">
               Discover More
             </span>
@@ -62,9 +67,9 @@ const TwoImagesCard = () => (
           <img
             src="https://picsum.photos/600/400?random=3"
             alt="Random Scene 2"
-            className="w-full h-[200px] object-cover rounded-lg transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
+            className="w-full h-[200px] object-cover rounded-lg transition-all duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
             <span className="text-white font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform">
               Explore More
             </span>
