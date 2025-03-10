@@ -1,6 +1,20 @@
 import React from "react";
 import { GripController } from "../components";
 
+// New DemoContainer component
+interface DemoContainerProps {
+  children: React.ReactNode;
+}
+
+const DemoContainer = ({ children }: DemoContainerProps) => (
+  <div className="flex flex-col border border-black">
+    <header className="p-4 border-b border-black">
+      <h2 className="text-sm font-normal text-gray-700 uppercase">Demo</h2>
+    </header>
+    <div className="h-[500px] overflow-auto border-b border-black grid place-content-center">{children}</div>
+  </div>
+);
+
 const SingleImageCard = () => (
   <div className="bg-white rounded-xl shadow-lg overflow-hidden">
     <div className="relative">
@@ -62,22 +76,20 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4">
       <div className="max-w-6xl mx-auto space-y-12">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Responsive Card Examples</h1>
+        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">React Grip Examples</h1>
 
-        <div className="space-y-16">
-          <section>
-            <h2 className="text-2xl font-semibold mb-6 text-gray-700">Single Image Card</h2>
+        <div className="grid grid-cols-1 gap-12">
+          <DemoContainer>
             <GripController name="Image Card" minWidth={280} maxWidth={600}>
               <SingleImageCard />
             </GripController>
-          </section>
+          </DemoContainer>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-6 text-gray-700">Two Images Card</h2>
-            <GripController name="Gallery Card" minWidth={300} maxWidth={800} controlPosition="top-right">
+          <DemoContainer>
+            <GripController name="Gallery Card" minWidth={300} maxWidth={800}>
               <TwoImagesCard />
             </GripController>
-          </section>
+          </DemoContainer>
         </div>
       </div>
     </div>
